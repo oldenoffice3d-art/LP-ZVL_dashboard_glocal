@@ -303,7 +303,14 @@
                                             <span>Docks per Hub</span>
                                             <span className="text-safety">{currentData.docksPerHub}</span>
                                         </label>
-                                        <input type="range" min="10" max={activeTab === 'USA' ? 300 : 150} value={currentData.docksPerHub} onChange={(e) => handleChange('docksPerHub', Number(e.target.value))} />
+                                        <input type="range" min="1" max={activeTab === 'USA' ? 300 : 150} value={currentData.docksPerHub} onChange={(e) => handleChange('docksPerHub', Number(e.target.value))} />
+                                    </div>
+                                    <div>
+                                        <label className="flex justify-between text-[10px] text-gray-400 uppercase font-bold mb-1">
+                                            <span>Trucks / Hub / Day</span>
+                                            <span className="text-safety">{currentData.trucksPerHub}</span>
+                                        </label>
+                                        <input type="range" min="1" max={activeTab === 'USA' ? 2500 : 1000} value={currentData.trucksPerHub} onChange={(e) => handleChange('trucksPerHub', Number(e.target.value))} />
                                     </div>
                                     <div>
                                         <label className="flex justify-between text-[10px] text-gray-400 uppercase font-bold mb-1">
