@@ -292,32 +292,25 @@
                                 {/* Physical Scale Input */}
                                 <div className="space-y-4">
                                     <div>
-                                        <label className="flex justify-between text-[10px] text-gray-400 uppercase font-bold mb-1">
+                                        <label className="flex justify-between text-[10px] text-gray-400 uppercase font-bold mb-1 items-center">
                                             <span>Active Hubs (FCs)</span>
-                                            <span className="text-safety">{currentData.hubs}</span>
+                                            <input type="number" min="1" value={currentData.hubs} onChange={(e) => handleChange('hubs', Number(e.target.value))} className="w-16 bg-transparent border-b border-safety/30 text-safety text-right focus:outline-none focus:border-safety font-mono text-sm" />
                                         </label>
                                         <input type="range" min="1" max={activeTab === 'USA' ? 500 : 100} value={currentData.hubs} onChange={(e) => handleChange('hubs', Number(e.target.value))} />
                                     </div>
                                     <div>
-                                        <label className="flex justify-between text-[10px] text-gray-400 uppercase font-bold mb-1">
+                                        <label className="flex justify-between text-[10px] text-gray-400 uppercase font-bold mb-1 items-center">
                                             <span>Docks per Hub</span>
-                                            <span className="text-safety">{currentData.docksPerHub}</span>
+                                            <input type="number" min="1" value={currentData.docksPerHub} onChange={(e) => handleChange('docksPerHub', Number(e.target.value))} className="w-16 bg-transparent border-b border-safety/30 text-safety text-right focus:outline-none focus:border-safety font-mono text-sm" />
                                         </label>
                                         <input type="range" min="1" max={activeTab === 'USA' ? 300 : 150} value={currentData.docksPerHub} onChange={(e) => handleChange('docksPerHub', Number(e.target.value))} />
                                     </div>
                                     <div>
-                                        <label className="flex justify-between text-[10px] text-gray-400 uppercase font-bold mb-1">
+                                        <label className="flex justify-between text-[10px] text-gray-400 uppercase font-bold mb-1 items-center">
                                             <span>Trucks / Hub / Day</span>
-                                            <span className="text-safety">{currentData.trucksPerHub}</span>
+                                            <input type="number" min="1" value={currentData.trucksPerHub} onChange={(e) => handleChange('trucksPerHub', Number(e.target.value))} className="w-16 bg-transparent border-b border-safety/30 text-safety text-right focus:outline-none focus:border-safety font-mono text-sm" />
                                         </label>
                                         <input type="range" min="1" max={activeTab === 'USA' ? 2500 : 1000} value={currentData.trucksPerHub} onChange={(e) => handleChange('trucksPerHub', Number(e.target.value))} />
-                                    </div>
-                                    <div>
-                                        <label className="flex justify-between text-[10px] text-gray-400 uppercase font-bold mb-1">
-                                            <span>Trucks / Hub / Day</span>
-                                            <span className="text-safety">{currentData.trucksPerHub}</span>
-                                        </label>
-                                        <input type="range" min="50" max={activeTab === 'USA' ? 2500 : 1000} value={currentData.trucksPerHub} onChange={(e) => handleChange('trucksPerHub', Number(e.target.value))} />
                                     </div>
                                 </div>
 
@@ -349,9 +342,12 @@
                                     
                                     {/* Peak Multiplier */}
                                     <div>
-                                        <label className="flex justify-between text-[10px] text-purple-400 uppercase font-bold mb-1">
+                                        <label className="flex justify-between text-[10px] text-purple-400 uppercase font-bold mb-1 items-center">
                                             <span>Peak Season Multiplier</span>
-                                            <span className="text-white">{currentData.peakIntensity}x</span>
+                                            <div className="flex items-center border-b border-purple-400/30 focus-within:border-purple-400">
+                                                <input type="number" min="1.0" max="3.0" step="0.1" value={currentData.peakIntensity} onChange={(e) => handleChange('peakIntensity', Number(e.target.value))} className="w-16 bg-transparent text-white text-right focus:outline-none font-mono text-sm" />
+                                                <span className="text-white text-sm ml-1">x</span>
+                                            </div>
                                         </label>
                                         <input type="range" min="1.0" max="3.0" step="0.1" value={currentData.peakIntensity} onChange={(e) => handleChange('peakIntensity', Number(e.target.value))} />
                                         <p className="text-[9px] text-gray-500 mt-1 uppercase">Adjusts cost for Prime Day / Q4</p>
